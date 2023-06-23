@@ -119,103 +119,40 @@ function fromJSON(proto, json) {
  *
  *  For more examples see unit tests.
  */
-/*
-class Selector {
-  constructor() {
-    this.elements = [];
-    this.ids = [];
-    this.classes = [];
-    this.attributes = [];
-    this.pseudoClasses = [];
-    this.pseudoElements = [];
-    this.combinators = [];
-  }
 
-  element(value) {
-    const newSelector = new Selector();
-    newSelector.elements = [...this.elements, value];
-    return newSelector;
-  }
+const cssSelectorBuilder = {
+  element(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  id(value) {
-    const newSelector = new Selector();
-    newSelector.ids = [...this.ids, value];
-    return newSelector;
-  }
+  id(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  class(value) {
-    const newSelector = new Selector();
-    newSelector.classes = [...this.classes, value];
-    return newSelector;
-  }
+  class(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  attr(value) {
-    const newSelector = new Selector();
-    newSelector.attributes = [...this.attributes, value];
-    return newSelector;
-  }
+  attr(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  pseudoClass(value) {
-    const newSelector = new Selector();
-    newSelector.pseudoClasses = [...this.pseudoClasses, value];
-    return newSelector;
-  }
+  pseudoClass(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  pseudoElement(value) {
-    const newSelector = new Selector();
-    newSelector.pseudoElements = [...this.pseudoElements, value];
-    return newSelector;
-  }
+  pseudoElement(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  combine(selector, combinator) {
-    const newSelector = new Selector();
-    newSelector.combinators = [...this.combinators, { selector, combinator }];
-    return newSelector;
-  }
-
-  stringify() {
-    const elemStr = this.elements.join('');
-    const idsStr = this.ids.map((id) => `#${id}`).join('');
-    const classesStr = this.classes.map((className) => `.${className}`).join('');
-    const attrStr = this.attributes.map((attribute) => `[${attribute}]`).join('');
-    const pseudoClStr = this.pseudoClasses.map((pseudoClass) => `:${pseudoClass}`).join('');
-    const pseudoElemStr = this.pseudoElements.map((pseudoElement) => `::${pseudoElement}`).join('');
-
-    const selectorString = elemStr + idsStr + classesStr + attrStr + pseudoClStr + pseudoElemStr;
-    const combinatorsString = this.combinators
-    .map(({ selector, combinator }) => `${combinator} ${selector.stringify()}`).join('');
-
-    return selectorString + combinatorsString;
-  }
-} */
-
-// const cssSelectorBuilder = {
-//   element(value) {
-//     return new Selector().element(value);
-//   },
-//   id(value) {
-//     return new Selector().id(value);
-//   },
-//   class(value) {
-//     return new Selector().class(value);
-//   },
-//   attr(value) {
-//     return new Selector().attr(value);
-//   },
-//   pseudoClass(value) {
-//     return new Selector().pseudoClass(value);
-//   },
-//   pseudoElement(value) {
-//     return new Selector().pseudoElement(value);
-//   },
-//   combine(selector1, combinator, selector2) {
-//     return new Selector().combine(selector1, combinator, selector2);
-//   },
-// };
+  combine(/* selector1, combinator, selector2 */) {
+    throw new Error('Not implemented');
+  },
+};
 
 module.exports = {
   Rectangle,
   getJSON,
   fromJSON,
-//   cssSelectorBuilder,
+  cssSelectorBuilder,
 };
