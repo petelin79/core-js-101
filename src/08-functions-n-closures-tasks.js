@@ -91,7 +91,7 @@ function getPolynom() {
 function memoize(func) {
   let cache = null;
 
-  return function () {
+  return function f() {
     if (cache === null) {
       cache = func();
     }
@@ -117,7 +117,7 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
-  return function () {
+  return function f() {
     for (let i = 0; i < attempts; i += 1) {
       try {
         return func();
@@ -156,7 +156,7 @@ function retry(func, attempts) {
  *
  */
 function logger(func, logFunc) {
-  return function (...args) {
+  return function f(...args) {
     const functionName = func.name || 'anonymous';
     const argString = args.map((arg) => JSON.stringify(arg)).join(',');
     logFunc(`${functionName}(${argString}) starts`);
@@ -182,7 +182,7 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn, ...args1) {
-  return function (...args2) {
+  return function f(...args2) {
     return fn(...args1, ...args2);
   };
   // throw new Error('Not implemented');
@@ -208,7 +208,7 @@ function partialUsingArguments(fn, ...args1) {
  */
 function getIdGeneratorFunction(startFrom) {
   let nextId = startFrom - 1;
-  return function () {
+  return function f() {
     nextId += 1;
     return nextId;
   };
